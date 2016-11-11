@@ -46,8 +46,8 @@ PROJECT = legendary-fighters
 VERSION = 0.1a
 ICON    =
 
-SOURCE_DIR    = src/main
-TEST_DIR      = src/test
+SOURCE_DIR    = src/
+TEST_DIR      = test/
 RESOURCE_DIR  = res
 BUILD_DIR     = build
 
@@ -56,7 +56,8 @@ TEST_MAIN   = $(TEST_DIR)/test.cpp
 
 IS_CPP          = true
 LIBS            =
-TEST_LIBS       = cppunit
+#TEST_LIBS       = cppunit
+TEST_LIBS       =
 FRAMEWORKS      =
 TEST_FRAMEWORKS =
 
@@ -89,9 +90,7 @@ LDFLAGS     += $(foreach dir, \
                  $(addprefix -L, $(INSTALLED_LIB_DIRS)), \
                  $(dir)/lib) \
                $(addprefix -l, $(LIBS)) \
-               $(addprefix -l, $(TEST_LIBS)) \
                $(addprefix -framework, $(FRAMEWORKS)) \
-               $(addprefix -framework, $(TEST_FRAMEWORKS))
 
 ################################################################################
 
