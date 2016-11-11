@@ -83,7 +83,7 @@ IMPL_EXT    = c
 HEADER_EXT  = h
 endif
 COMP_FLAGS  += $(foreach dir, \
-                 $(addprefix -I, $(INSTALLED_LIB_DIRS), \
+                 $(addprefix -I, $(INSTALLED_LIB_DIRS)), \
                  $(dir)/include)
 LDFLAGS     += $(foreach dir, \
                  $(addprefix -L, $(INSTALLED_LIB_DIRS)), \
