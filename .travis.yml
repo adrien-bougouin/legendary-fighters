@@ -1,0 +1,13 @@
+language: c++
+compiler:
+  - clang
+os:
+  - linux
+  - osx
+notifications:
+  recipients:
+    - adrien.bougouin@gmail.com
+  email:
+    - on_success: change
+    - on_failure: always
+script: make && make test
