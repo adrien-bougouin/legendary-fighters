@@ -60,8 +60,8 @@ TEST_LIBS       = cppunit
 FRAMEWORKS      =
 TEST_FRAMEWORKS =
 
-#CC                  =
-#CXX                 = clang++
+CC                  = clang
+CXX                 = clang++
 CFLAGS              +=
 CXXFLAGS            += -std=c++11
 LDFLAGS             +=
