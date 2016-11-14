@@ -8,7 +8,7 @@
 #   - all:                Creates the executable, runs unit test and creates an
 #                         OS X application.
 #   - clean:              Removes object files (.o) generated during
-#   											compilation.
+#   			  compilation.
 #   - clean-all:          Removes the BUILD_DIR directory.
 #
 # Required information:
@@ -21,24 +21,24 @@
 #   - RESOURCE_DIR:       The root directory of the project resources.
 #   - BUILD_DIR:          The root directory where to build the project.
 #   - INSTALLED_LIB_DIRS: The root directories where external libraries are
-#   											installed to be used to compile the project.
+#   			  installed to be used to compile the project.
 #
-#		- SOURCE_MAIN					The path of the project main file.
-#		- TEST_MAIN						The path of the project tests main file.
+#   - SOURCE_MAIN	  The path of the project main file.
+#   - TEST_MAIN		  The path of the project tests main file.
 #
 #   - IS_CPP:             True if the project is writen in C++, false otherwise.
 #   - LIBS:               The name of the libraries used by the project.
-#   - TEST_LIBS						The name of the libraries used by the project tests.
+#   - TEST_LIBS		  The name of the libraries used by the project tests.
 #   - FRAMEWORKS:         The name of the OS X frameworks used by the project.
 #   - TEST_FRAMEWORKS:    The name of the OS X frameworks used by the project
-#   											tests.
+#   			  tests.
 #
 #   - CC:                 The C compiler.
 #   - CXX:                The C++ compiler.
 #   - CFALGS:             The flags to use with the C compiler (except -I).
 #   - CXXFLAGS:           The flags to use with the C++ compiler (except -I).
 #   - LDFLAGS:            The flags to use during linkage (except -L, -l and
-#   											-framework).
+#   			  -framework).
 
 ##### Configuration ############################################################
 
