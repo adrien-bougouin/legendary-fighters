@@ -1,13 +1,13 @@
-language: c++
-compiler:
-  - clang
 os:
   - linux
   - osx
-notifications:
-  recipients:
-    - adrien.bougouin@gmail.com
-  email:
-    - on_success: change
-    - on_failure: always
+before_install:
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libcppunit-dev; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew update; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then brew install cppunit; fi
+language: c++
+compiler:
+  - clang
 script: make && make test
+

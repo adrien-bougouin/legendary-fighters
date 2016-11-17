@@ -1,8 +1,7 @@
-//#include <cppunit/extensions/TestFactoryRegistry.h>
-//#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/ui/text/TestRunner.h>
 
 int main(int argc, char **argv) {
-  /*
   CppUnit::TextUi::TestRunner runner;
   CppUnit::TestFactoryRegistry &registry = CppUnit::TestFactoryRegistry::getRegistry();
 
@@ -10,7 +9,6 @@ int main(int argc, char **argv) {
   if(!runner.run()) {
     return 1;
   }
-  */
 
   return 0;
 }

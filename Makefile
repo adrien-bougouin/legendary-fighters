@@ -46,8 +46,8 @@ PROJECT = legendary-fighters
 VERSION = 0.1a
 ICON    =
 
-SOURCE_DIR    = src/
-TEST_DIR      = test/
+SOURCE_DIR    = src
+TEST_DIR      = test
 RESOURCE_DIR  = res
 BUILD_DIR     = build
 
@@ -56,8 +56,7 @@ TEST_MAIN   = $(TEST_DIR)/test.cpp
 
 IS_CPP          = true
 LIBS            =
-#TEST_LIBS       = cppunit
-TEST_LIBS       =
+TEST_LIBS       = cppunit
 FRAMEWORKS      =
 TEST_FRAMEWORKS =
 
