@@ -55,7 +55,7 @@ SOURCE_MAIN = $(SOURCE_DIR)/main.cpp
 TEST_MAIN   = $(TEST_DIR)/test.cpp
 
 IS_CPP          = true
-LIBS            =
+LIBS            = sdl2
 TEST_LIBS       = cppunit
 FRAMEWORKS      =
 TEST_FRAMEWORKS =
