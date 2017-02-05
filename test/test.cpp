@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
   CppUnit::TestFactoryRegistry &registry = CppUnit::TestFactoryRegistry::getRegistry();
 
   runner.addTest(registry.makeTest());
-  if(!runner.run()) {
+  if (!runner.run()) {
     return 1;
   }
 

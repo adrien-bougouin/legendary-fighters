@@ -1,14 +1,14 @@
 #include "graphics.hpp"
 
 Graphics::Graphics(): window_(NULL), renderer_(NULL) {
-  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+  if (SDL_VideoInit(NULL) != 0) {
     // TODO initialisation error
   }
 }
 
 Graphics::~Graphics() {
   stop();
-  SDL_Quit();
+  SDL_VideoQuit();
 }
 
 void Graphics::start() {
