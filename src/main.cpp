@@ -1,7 +1,12 @@
 #include <iostream>
 
+#include "core/graphics.hpp"
+
 int main (int argc, char **argv) {
-  std::cout << "Hello World!" << std::endl;
+  Graphics graphics = Graphics();
+
+  graphics.start();
+  sleep(5);
 
   return 0;
 }
