@@ -65,7 +65,7 @@ CXX                 = clang++
 CFLAGS              +=
 CXXFLAGS            += -std=c++11
 LDFLAGS             +=
-INSTALLED_LIB_DIRS  = /usr/local /opt
+INSTALLED_LIB_DIRS  = /usr/local
 
 ################################################################################
 
