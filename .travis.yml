@@ -3,20 +3,11 @@ os:
   - osx
 before_install:
   # LINUX ######################################################################
-  #- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:team-xbmc/ppa; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:team-xbmc/ppa; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libcppunit-dev; fi
-  #- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libsdl2-dev; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then hg clone https://hg.libsdl.org/SDL SDL; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd SDL; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then mkdir build; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd build; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then ../configure --prefix=/usr/local; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then make; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo make install; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ../..; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then ls /usr/local; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then pkg-config sdl2; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libsdl2-dev; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then ls /usr/local/lib; fi
   # OS X #######################################################################
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew update; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install cppunit; fi
