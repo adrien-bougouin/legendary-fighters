@@ -1,14 +1,12 @@
 os:
-  - osx
   - linux
+  - osx
+addons:
+  apt:
+    packages:
+      - libcppunit-dev
+      - libsdl2-dev
 before_install:
-  # LINUX ######################################################################
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libcppunit-dev; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:team-xbmc/ppa; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y libsdl2-dev; fi
-  # OS X #######################################################################
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew update; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install cppunit; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install sdl2; fi

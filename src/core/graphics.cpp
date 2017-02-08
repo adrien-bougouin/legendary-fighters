@@ -4,12 +4,13 @@ Graphics::Graphics(): window_(NULL), renderer_(NULL) {
   if (SDL_VideoInit(NULL) != 0) {
     // TODO initialisation error
   }
+
+  atexit(SDL_Quit);
 }
 
 Graphics::~Graphics() {
   stop();
   SDL_VideoQuit();
-  atexit(SDL_Quit);
 }
 
 void Graphics::start() {
