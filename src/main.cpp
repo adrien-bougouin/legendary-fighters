@@ -1,12 +1,9 @@
-#include <unistd.h>
-
-#include "core/graphics.hpp"
+#include "core/game.hpp"
 
 int main (int argc, char **argv) {
-  Graphics graphics = Graphics();
+  Game game = Game();
 
-  graphics.start();
-  sleep(5);
+  game.run();
 
   return 0;
 }

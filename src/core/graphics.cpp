@@ -41,3 +41,20 @@ void Graphics::stop() {
   }
 }
 
+void Graphics::draw_square(const Vector2D &position, const double &width) {
+  if (renderer_ != NULL) {
+    SDL_Rect square;
+
+    square.x = position.x();
+    square.y = 480.0 + position.y() - width;
+    square.w = width;
+    square.h = width;
+
+    SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
+    SDL_RenderClear(renderer_);
+    SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
+    SDL_RenderDrawRect(renderer_, &square);
+    SDL_RenderPresent(renderer_);
+  }
+}
+
