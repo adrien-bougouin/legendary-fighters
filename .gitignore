@@ -28,5 +28,12 @@
 *.out
 *.app
 
-# build directory
+# Build directory
 build/
+
+# Vim
+*.swp
+
+# OS X
+*.DS_Store
+

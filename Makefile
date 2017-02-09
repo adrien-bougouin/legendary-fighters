@@ -94,7 +94,7 @@ LDFLAGS     += $(foreach dir, \
 ################################################################################
 
 EXEC      = $(shell echo $(PROJECT) | tr '[:upper:]' '[:lower:]' | sed "s/-/_/g")
-TEST_EXEC = $(shell echo $(PROJECT) | tr '[:upper:]' '[:lower:]')_test
+TEST_EXEC = $(shell echo $(PROJECT) | tr '[:upper:]' '[:lower:]' | sed "s/-/_/g")_test
 
 SOURCE_DIRS         = ${shell find ${SOURCE_DIR} -type d -print}
 TEST_DIRS           = ${shell find ${TEST_DIR} -type d -print}
