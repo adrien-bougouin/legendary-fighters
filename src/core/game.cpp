@@ -4,7 +4,7 @@
 #include "../utils/time.hpp"
 
 const double Game::FRAME_RATE = 30.0;
-const double Game::FRAME_MILLISECOND = (1.0 / Game::FRAME_RATE) * 1000.0;
+const double Game::FRAME_MILLISECONDS = (1.0 / Game::FRAME_RATE) * 1000.0;
 
 Game::Game(): graphics_engine_(), game_entities_(), over_(true) {
 }
@@ -40,7 +40,7 @@ void Game::loop() {
     // TODO
 
     // update
-    if (lag >= FRAME_MILLISECOND) {
+    if (lag >= FRAME_MILLISECONDS) {
       for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
         Vector2D &position = game_entities_[i].position();
 
@@ -50,7 +50,7 @@ void Game::loop() {
         }
       }
 
-      lag -= FRAME_MILLISECOND;
+      lag -= FRAME_MILLISECONDS;
 
       // TODO remove
       ++rec_limit;
