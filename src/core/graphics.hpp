@@ -1,6 +1,7 @@
 #ifndef __CORE_GRAPHICS_HPP__
 #define __CORE_GRAPHICS_HPP__
 
+#include <string>
 #include <SDL2/SDL.h>
 
 #include "../model/vector_2d.hpp"
@@ -13,7 +14,7 @@ class Graphics {
     Graphics();
     ~Graphics();
 
-    void start();
+    void start(const std::string &window_title, const int &window_width, const int &window_height);
     void stop();
 
     void draw_square(const Vector2D &position, const double &width);

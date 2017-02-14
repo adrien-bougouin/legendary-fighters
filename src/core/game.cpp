@@ -2,39 +2,48 @@
 
 #include "game.hpp"
 
-Game::Game(): over_(true) {
+Game::Game(): graphics_engine_(), game_entities_(), over_(true) {
 }
 
 void Game::run() {
   over_ = false;
 
+  graphics_engine_.start("Legendary Fighters", 640, 480);
   loop();
 }
 
 void Game::quit() {
   over_ = true;
+
+  graphics_engine_.stop();
 }
 
 void Game::loop() {
-  Graphics graphics_engine = Graphics();
-  GameEntity game_entity = GameEntity();
-  int limit = 0;
+  int rec_limit = 0;
 
-  graphics_engine.start();
+  game_entities_[0] = GameEntity();
 
   while (!over_) {
-    Vector2D &position = game_entity.position();
-
     // process input
+
     // update
-    position.set_x((position.x() * -1.0) + 20.0);
+    for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
+      Vector2D &position = game_entities_[i].position();
+
+      position.set_x((position.x() * -1.0) + 20.0);
+    }
+
     // render
-    graphics_engine.draw_square(position, 80.0);
+    for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
+      Vector2D &position = game_entities_[i].position();
+
+      graphics_engine_.draw_square(position, 80.0);
+    }
 
     sleep(1);
 
-    ++limit;
-    if (limit == 10) quit();
+    ++rec_limit;
+    if (rec_limit == 10) quit();
   }
 }
 

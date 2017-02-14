@@ -13,9 +13,15 @@ Graphics::~Graphics() {
   SDL_VideoQuit();
 }
 
-void Graphics::start() {
-  // TODO customize
-  window_ = SDL_CreateWindow("Legendary Fighters", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+void Graphics::start(const std::string &window_title, const int &window_width, const int &window_height) {
+  window_ = SDL_CreateWindow(
+    window_title.c_str(),
+    SDL_WINDOWPOS_CENTERED,
+    SDL_WINDOWPOS_CENTERED,
+    window_width,
+    window_height,
+    SDL_WINDOW_SHOWN
+  );
 
   if (window_ == NULL) {
     // TODO error
