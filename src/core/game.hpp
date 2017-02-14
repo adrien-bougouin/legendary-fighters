@@ -15,6 +15,9 @@ class Game {
 
     void loop();
   public:
+    static const double FRAME_RATE;
+    static const double FRAME_MILLISECOND;
+
     Game();
 
     void run();
