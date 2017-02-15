@@ -23,7 +23,6 @@ void Game::quit() {
 }
 
 void Game::loop() {
-  int rec_limit = 0; // TODO remove
   double previous_time = utils::time::milliseconds_since_epoch();
   double lag = 0.0;
 
@@ -45,16 +44,10 @@ void Game::loop() {
         Vector2D &position = game_entities_[i].position();
 
         // change position every second
-        if (fmod(rec_limit, FRAME_RATE) == 0.0) { // TODO remove
-          position.set_x((position.x() * -1.0) + 20.0);
-        }
+        position.set_x((position.x() * -1.0) + 20.0);
       }
 
       lag -= FRAME_MILLISECONDS;
-
-      // TODO remove
-      ++rec_limit;
-      if (rec_limit == FRAME_RATE * 10.0) quit();
     }
 
     // render
