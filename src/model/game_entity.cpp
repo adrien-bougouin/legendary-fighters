@@ -19,3 +19,17 @@ const Vector2D &GameEntity::velocity() const {
   return velocity_;
 }
 
+void GameEntity::process_input() {
+  // TODO
+}
+
+void GameEntity::update() {
+  // TODO
+  position_.set_x((position_.x() * -1.0) + 20.0);
+}
+
+void GameEntity::render(Graphics &graphics) {
+  // TODO
+  graphics.draw_square(position_, 80.0);
+}
+

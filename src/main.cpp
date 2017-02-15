@@ -3,11 +3,10 @@
 #include "core/game.hpp"
 
 int main (int argc, char **argv) {
-  Game game = Game();
+  Game game = Game("Legendary Fighters");
 
   signal(SIGINT, exit);
-
-  game.run();
+  game.start();
 
   return 0;
 }
