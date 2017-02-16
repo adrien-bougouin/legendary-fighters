@@ -9,7 +9,7 @@ const double Game::FRAME_MILLISECONDS = (1.0 / Game::FRAME_RATE) * 1000.0;
 Game::Game(const std::string &name): name_(name), over_(true), graphics_(), game_entities_() {
 }
 
-void Game::start() {
+void Game::run() {
   over_ = false;
 
   graphics_.start(name_, 640, 480);
@@ -46,10 +46,20 @@ void Game::loop() {
   }
 }
 
+// TODO remove coupling to SDL
+#include <SDL2/SDL.h>
 void Game::process_inputs() {
-  for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
-    // TODO game_entities_[i].inputs.update(game_entities_[i]);
-    game_entities_[i].process_input();
+  SDL_Event event;
+
+  if (SDL_PollEvent(&event)) {
+    if (event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE) {
+      stop();
+    } else {
+      for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
+        // TODO game_entities_[i].inputs.update(game_entities_[i]);
+        game_entities_[i].process_input();
+      }
+    }
   }
 }
 

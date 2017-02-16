@@ -27,7 +27,7 @@ class Game {
 
     Game(const std::string &name);
 
-    void start();
+    void run();
     void stop();
 };
 

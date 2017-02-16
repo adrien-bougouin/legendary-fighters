@@ -8,9 +8,8 @@ int main (int argc, char **argv) {
     Game game = Game("Legendary Fighters");
 
     atexit(SDL_Quit);
-    signal(SIGINT, exit);
 
-    game.start();
+    game.run();
   }
 
   return 0;
