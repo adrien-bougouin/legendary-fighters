@@ -52,7 +52,7 @@ void Game::process_inputs() {
   SDL_Event event;
 
   if (SDL_PollEvent(&event)) {
-    if (event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE) {
+    if (event.type == SDL_QUIT) {
       stop();
     } else {
       for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
