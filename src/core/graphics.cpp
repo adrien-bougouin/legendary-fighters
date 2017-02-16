@@ -1,16 +1,10 @@
 #include "graphics.hpp"
 
 Graphics::Graphics(): window_(NULL), renderer_(NULL) {
-  if (SDL_VideoInit(NULL) != 0) {
-    // TODO initialisation error
-  }
-
-  atexit(SDL_Quit);
 }
 
 Graphics::~Graphics() {
   stop();
-  SDL_VideoQuit();
 }
 
 void Graphics::start(const std::string &window_title, const int &window_width, const int &window_height) {

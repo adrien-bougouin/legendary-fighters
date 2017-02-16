@@ -1,12 +1,17 @@
 #include <signal.h>
+#include <SDL2/SDL.h>
 
 #include "core/game.hpp"
 
 int main (int argc, char **argv) {
-  Game game = Game("Legendary Fighters");
+  if (SDL_VideoInit(NULL) == 0) {
+    Game game = Game("Legendary Fighters");
 
-  signal(SIGINT, exit);
-  game.start();
+    atexit(SDL_Quit);
+    signal(SIGINT, exit);
+
+    game.start();
+  }
 
   return 0;
 }
