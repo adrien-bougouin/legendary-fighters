@@ -6,7 +6,7 @@
 const double Game::FRAME_RATE = 30.0;
 const double Game::FRAME_MILLISECONDS = (1.0 / Game::FRAME_RATE) * 1000.0;
 
-Game::Game(const std::string &name): name_(name), over_(true), graphics_(), game_entities_() {
+Game::Game(const std::string &name): name_(name), over_(true), inputs_(), graphics_(), game_entities_() {
 }
 
 void Game::run() {
@@ -46,13 +46,11 @@ void Game::loop() {
   }
 }
 
-// TODO remove coupling to SDL
-#include <SDL2/SDL.h>
 void Game::process_inputs() {
-  SDL_Event event;
+  InputType input = inputs_.poll();
 
-  if (SDL_PollEvent(&event)) {
-    if (event.type == SDL_QUIT) {
+  if (input != InputType::NONE) {
+    if (input == InputType::QUIT) {
       stop();
     } else {
       for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {

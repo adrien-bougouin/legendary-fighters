@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "inputs.hpp"
 #include "graphics.hpp"
 #include "../model/game_entity.hpp"
 
@@ -14,6 +15,7 @@ class Game {
     GameEntity game_entities_[GAME_ENTITY_LIMIT];
     bool over_;
 
+    Inputs inputs_;
     Graphics graphics_;
     // TODO Physics physics_;
 
