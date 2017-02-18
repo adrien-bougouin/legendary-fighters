@@ -37,7 +37,7 @@ void Game::loop() {
     lag += elapsed_time;
 
     process_inputs();
-    if (lag >= FRAME_MILLISECONDS) {
+    while (lag >= FRAME_MILLISECONDS) {
       update();
 
       lag -= FRAME_MILLISECONDS;
