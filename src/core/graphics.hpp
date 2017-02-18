@@ -4,7 +4,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-#include "../model/vector_2d.hpp"
+#include "../models/vector_2d.hpp"
 
 class Graphics {
   private:

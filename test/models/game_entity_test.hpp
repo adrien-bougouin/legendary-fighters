@@ -4,7 +4,7 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include "../../src/model/game_entity.hpp"
+#include "../../src/models/game_entity.hpp"
 
 class GameEntityTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(GameEntityTest);

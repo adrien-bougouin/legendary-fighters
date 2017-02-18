@@ -4,7 +4,7 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include "../../src/model/vector_2d.hpp"
+#include "../../src/models/vector_2d.hpp"
 
 class Vector2DTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(Vector2DTest);

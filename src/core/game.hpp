@@ -5,7 +5,7 @@
 
 #include "inputs.hpp"
 #include "graphics.hpp"
-#include "../model/game_entity.hpp"
+#include "../models/game_entity.hpp"
 
 class Game {
   private:
