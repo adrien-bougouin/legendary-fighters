@@ -1,6 +1,9 @@
 #include "game_entity.hpp"
 
-GameEntity::GameEntity(): position_(0.0, 0.0), velocity_(0.0, 0.0) {
+GameEntity::GameEntity(): position_(0.0, 0.0), velocity_(0.0, 0.0),
+                          inputs_component_(),
+                          physics_component_(),
+                          graphics_component_() {
 }
 
 Vector2D &GameEntity::position() {
@@ -19,17 +22,16 @@ const Vector2D &GameEntity::velocity() const {
   return velocity_;
 }
 
-void GameEntity::process_input() {
-  // TODO
+InputsComponent &GameEntity::inputs_component() {
+  return inputs_component_;
 }
 
-void GameEntity::update() {
-  // TODO
-  position_.set_x((position_.x() * -1.0) + 20.0);
+
+PhysicsComponent &GameEntity::physics_component() {
+  return physics_component_;
 }
 
-void GameEntity::render(Graphics &graphics) {
-  // TODO
-  graphics.draw_square(position_, 80.0);
+GraphicsComponent &GameEntity::graphics_component() {
+  return graphics_component_;
 }
 

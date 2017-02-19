@@ -1,5 +1,5 @@
-#ifndef __MODEL_VECTOR_2D_HPP
-#define __MODEL_VECTOR_2D_HPP
+#ifndef __MODELS_VECTOR_2D_HPP
+#define __MODELS_VECTOR_2D_HPP
 
 class Vector2D {
   private:
@@ -14,5 +14,5 @@ class Vector2D {
     void set_y(const double &y);
 };
 
-#endif // __MODEL_VECTOR_2D_HPP
+#endif // __MODELS_VECTOR_2D_HPP
 

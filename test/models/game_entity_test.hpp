@@ -1,5 +1,5 @@
-#ifndef __MODEL_GAME_ENTITY_TEST_HPP__
-#define __MODEL_GAME_ENTITY_TEST_HPP__
+#ifndef __MODELS_GAME_ENTITY_TEST_HPP__
+#define __MODELS_GAME_ENTITY_TEST_HPP__
 
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -19,5 +19,5 @@ class GameEntityTest: public CppUnit::TestFixture {
 
 CPPUNIT_TEST_SUITE_REGISTRATION(GameEntityTest);
 
-#endif // __MODEL_GAME_ENTITY_TEST_HPP__
+#endif // __MODELS_GAME_ENTITY_TEST_HPP__
 

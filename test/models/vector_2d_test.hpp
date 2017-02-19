@@ -1,5 +1,5 @@
-#ifndef __MODEL_VECTOR_2D_TEST_HPP__
-#define __MODEL_VECTOR_2D_TEST_HPP__
+#ifndef __MODELS_VECTOR_2D_TEST_HPP__
+#define __MODELS_VECTOR_2D_TEST_HPP__
 
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -21,5 +21,5 @@ class Vector2DTest: public CppUnit::TestFixture {
 
 CPPUNIT_TEST_SUITE_REGISTRATION(Vector2DTest);
 
-#endif // __MODEL_VECTOR_2D_TEST_HPP__
+#endif // __MODELS_VECTOR_2D_TEST_HPP__
 

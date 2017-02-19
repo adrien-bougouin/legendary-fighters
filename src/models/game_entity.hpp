@@ -1,13 +1,19 @@
-#ifndef __MODEL_GAME_ENTITY_HPP__
-#define __MODEL_GAME_ENTITY_HPP__
+#ifndef __MODELS_GAME_ENTITY_HPP__
+#define __MODELS_GAME_ENTITY_HPP__
 
-#include "../core/graphics.hpp" // TODO replace by GraphicsComponent
-#include "vector_2d.hpp" // TODO move to PhysicsComponent
+#include "vector_2d.hpp"
+#include "../components/inputs_component.hpp"
+#include "../components/physics_component.hpp"
+#include "../components/graphics_component.hpp"
 
 class GameEntity {
   private:
     Vector2D position_; // TODO move to PhysicsComponent
     Vector2D velocity_; // TODO move to PhysicsComponent
+
+    InputsComponent inputs_component_;
+    PhysicsComponent physics_component_;
+    GraphicsComponent graphics_component_;
 
   public:
     GameEntity();
@@ -17,11 +23,10 @@ class GameEntity {
     Vector2D &velocity();
     const Vector2D &velocity() const;
 
-    // TODO replace by component getters
-    void process_input();
-    void update();
-    void render(Graphics &graphics);
+    InputsComponent &inputs_component();
+    PhysicsComponent &physics_component();
+    GraphicsComponent &graphics_component();
 };
 
-#endif // __MODEL_GAME_ENTITY_HPP__
+#endif // __MODELS_GAME_ENTITY_HPP__
 

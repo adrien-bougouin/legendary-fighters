@@ -54,8 +54,7 @@ void Game::process_inputs() {
       stop();
     } else {
       for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
-        // TODO game_entities_[i].inputs.update(game_entities_[i]);
-        game_entities_[i].process_input();
+        game_entities_[i].inputs_component().update(game_entities_[i], input);
       }
     }
   }
@@ -63,15 +62,14 @@ void Game::process_inputs() {
 
 void Game::update() {
   for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
-    // TODO game_entities_[i].physics.update(game_entities_, physics_); // TODO game_entities_ should be state before any entity's update
-    game_entities_[i].update();
+    // TODO add physics engine and every entities for collision detection
+    game_entities_[i].physics_component().update(game_entities_[i]);
   }
 }
 
 void Game::render() {
   for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
-    // TODO game_entities_[i].graphics.update(game_entities_[i], graphics_);
-    game_entities_[i].render(graphics_);
+    game_entities_[i].graphics_component().update(game_entities_[i], graphics_);
   }
 }
 

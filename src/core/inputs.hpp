@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 
+// TODO probably creat an Input model including this type as attribute
 enum class InputType {
   NONE,
   QUIT
