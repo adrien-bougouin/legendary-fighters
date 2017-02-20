@@ -1,6 +1,5 @@
-#include <math.h> // TODO remove
-
 #include "game.hpp"
+#include "../models/input.hpp"
 #include "../utils/time.hpp"
 
 const double Game::FRAME_RATE = 30.0;
@@ -47,10 +46,10 @@ void Game::loop() {
 }
 
 void Game::process_inputs() {
-  InputType input = inputs_.poll();
+  Input input = inputs_.poll();
 
-  if (input != InputType::NONE) {
-    if (input == InputType::QUIT) {
+  if (input.type != InputType::NONE) {
+    if (input.type == InputType::QUIT) {
       stop();
     } else {
       for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
