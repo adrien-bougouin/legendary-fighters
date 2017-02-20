@@ -6,6 +6,7 @@
 
 #include "../models/vector_2d.hpp"
 
+// TODO double buffering
 class Graphics {
   private:
     SDL_Window *window_;
