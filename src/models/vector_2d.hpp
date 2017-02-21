@@ -5,8 +5,6 @@ class Vector2D {
   private:
     double x_;
     double y_;
-
-    // TODO void translate(const Vector2D &vector);
   public:
     Vector2D(const double &x, const double &y);
 
@@ -15,9 +13,10 @@ class Vector2D {
     void set_x(const double &x);
     void set_y(const double &y);
 
-    // TODO operator* for scalar multiplication (const)
-    // TODO += for vector translation
-    // TODO -= for vector translation (with given vector * -1 first)
+    bool operator==(const Vector2D &vector) const;
+    bool operator!=(const Vector2D &vector) const;
+    void operator+=(const Vector2D &vector);
+    void operator-=(const Vector2D &vector);
 };
 
 #endif // __MODELS_VECTOR_2D_HPP

@@ -19,3 +19,21 @@ void Vector2D::set_y(const double &y) {
   y_ = y;
 }
 
+bool Vector2D::operator==(const Vector2D &vector) const {
+  return x_ == vector.x() && y_ == vector.y();
+}
+
+bool Vector2D::operator!=(const Vector2D &vector) const {
+  return !(*this == vector);
+}
+
+void Vector2D::operator+=(const Vector2D &vector) {
+  x_ += vector.x();
+  y_ += vector.y();
+}
+
+void Vector2D::operator-=(const Vector2D &vector) {
+  x_ -= vector.x();
+  y_ -= vector.y();
+}
+
