@@ -6,11 +6,18 @@ void InputsComponent::update(GameEntity &game_entity, Input input) {
 
   switch (input.type) {
     case InputType::LEFT:
-      // TODO set += and -= operators for vector translation
-      velocity.set_x(velocity.x() - 20.0); // TODO use acceleration
+      if (input.method == InputMethod::PUSH) {
+        velocity.set_x(velocity.x() - 1.0); // TODO use acceleration
+      } else if (input.method == InputMethod::RELEASE) {
+        velocity.set_x(0.0);
+      }
       break;
     case InputType::RIGHT:
-      velocity.set_x(velocity.x() + 20.0); // TODO use acceleration
+      if (input.method == InputMethod::PUSH) {
+        velocity.set_x(velocity.x() + 1.0); // TODO use acceleration
+      } else if (input.method == InputMethod::RELEASE) {
+        velocity.set_x(0.0);
+      }
       break;
     default:
       break;

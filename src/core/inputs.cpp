@@ -4,20 +4,46 @@ Input Inputs::poll() const {
   SDL_Event event;
 
   if (SDL_PollEvent(&event)) {
-    switch (event.type) {
-      case SDL_QUIT:
-        return Input(InputType::QUIT);
-      case SDL_KEYDOWN:
-        SDL_KeyboardEvent key = event.key;
-        switch (key.keysym.sym) {
-          case SDLK_q:
-            return Input(InputType::LEFT);
-          case SDLK_d:
-            return Input(InputType::RIGHT);
-        }
-    }
+    return Input(input_type(event), input_method(event));
+  } else {
+    return Input(InputType::NONE, InputMethod::NONE);
+  }
+}
+
+InputType Inputs::input_type(SDL_Event event) const {
+  InputType type = InputType::NONE;
+
+  switch (event.type) {
+    case SDL_QUIT:
+      type = InputType::QUIT;
+      break;
+    case SDL_KEYDOWN:
+    case SDL_KEYUP:
+      SDL_KeyboardEvent key = event.key;
+
+      switch (key.keysym.sym) {
+        case SDLK_q:
+          type = InputType::LEFT;
+          break;
+        case SDLK_d:
+          type = InputType::RIGHT;
+          break;
+      }
+      break;
   }
 
-  return Input(InputType::NONE);
+  return type;
+}
+
+InputMethod Inputs::input_method(SDL_Event event) const {
+  InputMethod method = InputMethod::OTHER;
+
+  if (event.type == SDL_KEYDOWN) {
+    method = InputMethod::PUSH;
+  } else if (event.type == SDL_KEYUP) {
+    method = InputMethod::RELEASE;
+  }
+
+  return method;
 }
 
