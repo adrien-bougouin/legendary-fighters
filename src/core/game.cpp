@@ -5,20 +5,17 @@
 const double Game::FRAME_RATE = 30.0;
 const double Game::FRAME_MILLISECONDS = (1.0 / Game::FRAME_RATE) * 1000.0;
 
-Game::Game(const std::string &name): name_(name), over_(true), inputs_(), graphics_(), game_entities_() {
+Game::Game(Inputs *inputs, Graphics *graphics): over_(true), inputs_(inputs), graphics_(graphics), game_entities_() {
 }
 
 void Game::run() {
   over_ = false;
 
-  graphics_.start(name_, 640, 480);
   loop();
 }
 
 void Game::stop() {
   over_ = true;
-
-  graphics_.stop();
 }
 
 void Game::loop() {
@@ -46,7 +43,7 @@ void Game::loop() {
 }
 
 void Game::handle_inputs() {
-  Input input = inputs_.poll();
+  Input input = inputs_->poll();
 
   if (input.type != InputType::NONE) {
     if (input.type == InputType::QUIT) {

@@ -12,11 +12,10 @@ class Graphics {
     SDL_Window *window_;
     SDL_Renderer *renderer_;
   public:
-    Graphics();
+    Graphics(const std::string &window_title, const int &window_width, const int &window_height);
     ~Graphics();
 
-    void start(const std::string &window_title, const int &window_width, const int &window_height);
-    void stop();
+    bool ready() const;
 
     void draw_square(const Vector2D &position, const double &width);
 };

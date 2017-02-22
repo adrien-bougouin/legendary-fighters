@@ -1,13 +1,6 @@
 #include "graphics.hpp"
 
-Graphics::Graphics(): window_(NULL), renderer_(NULL) {
-}
-
-Graphics::~Graphics() {
-  stop();
-}
-
-void Graphics::start(const std::string &window_title, const int &window_width, const int &window_height) {
+Graphics::Graphics(const std::string &window_title, const int &window_width, const int &window_height) {
   window_ = SDL_CreateWindow(
     window_title.c_str(),
     SDL_WINDOWPOS_CENTERED,
@@ -17,21 +10,16 @@ void Graphics::start(const std::string &window_title, const int &window_width, c
     SDL_WINDOW_SHOWN
   );
 
-  if (window_ == NULL) {
-    // TODO error
-    stop();
-  }
+  if (window_ != NULL) {
+    renderer_ = SDL_CreateRenderer(window_, -1, 0);
 
-  renderer_ = SDL_CreateRenderer(window_, -1, 0);
-
-  if (renderer_ == NULL) {
-    // TODO error
-    stop();
+    if (renderer_ == NULL) {
+      SDL_DestroyWindow(window_);
+    }
   }
 }
 
-// TODO use a variadic cleanup function for SDL objects???
-void Graphics::stop() {
+Graphics::~Graphics() {
   if (renderer_ != NULL) {
     SDL_DestroyRenderer(renderer_);
   }
@@ -39,6 +27,10 @@ void Graphics::stop() {
   if (window_ != NULL) {
     SDL_DestroyWindow(window_);
   }
+}
+
+bool Graphics::ready() const {
+  return window_ != NULL && renderer_ != NULL;
 }
 
 void Graphics::draw_square(const Vector2D &position, const double &width) {

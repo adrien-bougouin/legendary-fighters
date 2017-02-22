@@ -10,14 +10,13 @@
 class Game {
   private:
     static const int GAME_ENTITY_LIMIT = 1;
-
-    const std::string name_;
     GameEntity game_entities_[GAME_ENTITY_LIMIT];
+
     bool over_;
 
-    Inputs inputs_;
-    Graphics graphics_;
+    Inputs *inputs_;
     // TODO Physics physics_;
+    Graphics *graphics_;
 
     void loop();
     void handle_inputs();
@@ -27,7 +26,7 @@ class Game {
     static const double FRAME_RATE;
     static const double FRAME_MILLISECONDS;
 
-    Game(const std::string &name);
+    Game(Inputs *inputs, Graphics *graphics);
 
     void run();
     void stop();
