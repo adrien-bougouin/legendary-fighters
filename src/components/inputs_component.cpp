@@ -1,7 +1,7 @@
 #include "inputs_component.hpp"
 #include "../models/game_entity.hpp"
 
-void InputsComponent::update(GameEntity &game_entity, Input input) {
+void InputsComponent::update(GameEntity &game_entity, Input &input) {
   Vector2D &velocity = game_entity.velocity();
 
   switch (input.type) {

@@ -8,7 +8,7 @@ class GameEntity;
 
 class InputsComponent {
   public:
-    void update(GameEntity &game_entity, Input input);
+    void update(GameEntity &game_entity, Input &input);
 };
 
 #endif // __COMPONENTS_INPUTS_COMPONENT_HPP__
