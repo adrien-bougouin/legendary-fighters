@@ -8,8 +8,8 @@
 
 class GameEntity {
   private:
-    Vector2D position_; // TODO move to PhysicsComponent
-    Vector2D velocity_; // TODO move to PhysicsComponent
+    Vector2D position_;
+    Vector2D velocity_;
 
     InputsComponent inputs_component_;
     PhysicsComponent physics_component_;
