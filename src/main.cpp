@@ -1,4 +1,3 @@
-#include <signal.h>
 #include <SDL2/SDL.h>
 
 #include "core/inputs.hpp"
