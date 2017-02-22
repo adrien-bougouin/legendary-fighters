@@ -23,6 +23,15 @@ void InputsComponent::update(GameEntity &game_entity, Input &input) {
         velocity.set_x(0.0);
       }
       break;
+    case InputType::UP:
+      if (input.method == InputMethod::PUSH) {
+        // TODO use physics component
+        velocity.set_y(velocity.y() + 1.0); // TODO use acceleration
+      } else if (input.method == InputMethod::RELEASE) {
+        // TODO use physics component
+        velocity.set_y(0.0);
+      }
+      break;
     default:
       break;
   }

@@ -1,6 +1,6 @@
 #include "graphics.hpp"
 
-Graphics::Graphics(const std::string &window_title, const int &window_width, const int &window_height) {
+Graphics::Graphics(const std::string &window_title, const double &window_width, const double &window_height): window_width_(window_width), window_height_(window_height) {
   window_ = SDL_CreateWindow(
     window_title.c_str(),
     SDL_WINDOWPOS_CENTERED,
@@ -33,20 +33,30 @@ bool Graphics::ready() const {
   return window_ != NULL && renderer_ != NULL;
 }
 
-void Graphics::draw_square(const Vector2D &position, const double &width) {
+void Graphics::draw_rectangle(const Vector2D &position, const double &width, const double &height) {
   if (renderer_ != NULL) {
-    SDL_Rect square;
+    SDL_Rect rectangle;
 
-    square.x = position.x();
-    square.y = 480.0 + position.y() - width;
-    square.w = width;
-    square.h = width;
+    rectangle.x = position.x();
+    rectangle.y = position.y();
+    rectangle.w = width;
+    rectangle.h = height;
+
+    project_rectangle_on_screen(rectangle);
 
     SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
     SDL_RenderClear(renderer_);
     SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
-    SDL_RenderDrawRect(renderer_, &square);
+    SDL_RenderDrawRect(renderer_, &rectangle);
     SDL_RenderPresent(renderer_);
   }
+}
+
+double Graphics::project_y_on_screen(const double &y) const {
+  return window_height_ - y;
+}
+
+void Graphics::project_rectangle_on_screen(SDL_Rect &rectangle) const {
+  rectangle.y = project_y_on_screen(rectangle.y + rectangle.h);
 }
 

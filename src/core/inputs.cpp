@@ -28,6 +28,9 @@ InputType Inputs::input_type(SDL_Event &event) const {
         case SDLK_d:
           type = InputType::RIGHT;
           break;
+        case SDLK_z:
+          type = InputType::UP;
+          break;
       }
       break;
   }
