@@ -10,7 +10,7 @@ Input Inputs::poll() const {
   }
 }
 
-InputType Inputs::input_type(SDL_Event event) const {
+InputType Inputs::input_type(SDL_Event &event) const {
   InputType type = InputType::NONE;
 
   switch (event.type) {
@@ -35,7 +35,7 @@ InputType Inputs::input_type(SDL_Event event) const {
   return type;
 }
 
-InputMethod Inputs::input_method(SDL_Event event) const {
+InputMethod Inputs::input_method(SDL_Event &event) const {
   InputMethod method = InputMethod::OTHER;
 
   if (event.type == SDL_KEYDOWN) {
