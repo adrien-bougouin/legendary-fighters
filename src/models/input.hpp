@@ -10,10 +10,10 @@ enum struct InputType {
   DOWN,
   LIGHT_PUNCH,
   MEDIUM_PUNCH,
-  HIGH_PUNCH,
+  HARD_PUNCH,
   LIGHT_KICK,
   MEDIUM_KICK,
-  HIGH_KICK
+  HARD_KICK
 };
 
 enum struct InputMethod {
