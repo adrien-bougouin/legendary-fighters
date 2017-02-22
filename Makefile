@@ -137,9 +137,6 @@ init:
 	@mkdir -p $(BUILD_DIR)
 	@mkdir -p $(addprefix $(OBJECT_DIR)/, $(SOURCE_DIRS))
 	@mkdir -p $(addprefix $(OBJECT_DIR)/, $(TEST_DIRS))
-	@echo "Makefile compilation:\t$(COMP) $(COMP_FLAGS)"
-	@echo "Makefile linking:\t$(LD) $(LDFLAGS)"
-	@echo ""
 
 ##### Executable ###############################################################
 
@@ -188,8 +185,8 @@ $(OBJECT_DIR)/%.o: %.cpp $(SOURCE_HEADERS) $(TEST_HEADERS)
 ##### Cleaning #################################################################
 
 clean:
-	rm -rf $(OBJECT_DIR)
+	@rm -rf $(OBJECT_DIR)
 
 clean-all:
-	rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
 
