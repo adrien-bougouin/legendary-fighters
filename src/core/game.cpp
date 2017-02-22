@@ -35,7 +35,7 @@ void Game::loop() {
     previous_time = current_time;
     lag += elapsed_time;
 
-    process_inputs();
+    handle_inputs();
     while (lag >= FRAME_MILLISECONDS) {
       update();
 
@@ -45,7 +45,7 @@ void Game::loop() {
   }
 }
 
-void Game::process_inputs() {
+void Game::handle_inputs() {
   Input input = inputs_.poll();
 
   if (input.type != InputType::NONE) {

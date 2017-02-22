@@ -20,7 +20,7 @@ class Game {
     // TODO Physics physics_;
 
     void loop();
-    void process_inputs();
+    void handle_inputs();
     void update();
     void render();
   public:
