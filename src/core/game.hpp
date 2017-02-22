@@ -1,8 +1,6 @@
 #ifndef __CORE_GAME_HPP__
 #define __CORE_GAME_HPP__
 
-#include <string>
-
 #include "inputs.hpp"
 #include "graphics.hpp"
 #include "../models/game_entity.hpp"
