@@ -13,7 +13,10 @@ Graphics::Graphics(const std::string &window_title, const double &window_width, 
   if (window_ != NULL) {
     renderer_ = SDL_CreateRenderer(window_, -1, 0);
 
-    if (renderer_ == NULL) {
+    if (renderer_ != NULL) {
+      init_renderer();
+      render();
+    } else {
       SDL_DestroyWindow(window_);
     }
   }
@@ -33,6 +36,20 @@ bool Graphics::ready() const {
   return window_ != NULL && renderer_ != NULL;
 }
 
+void Graphics::init_renderer() {
+  if (renderer_ != NULL) {
+    SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
+  }
+}
+
+void Graphics::render() {
+  if (renderer_ != NULL) {
+    SDL_RenderPresent(renderer_);
+    init_renderer();
+    SDL_RenderClear(renderer_);
+  }
+}
+
 void Graphics::draw_rectangle(const Vector2D &position, const double &width, const double &height) {
   if (renderer_ != NULL) {
     SDL_Rect rectangle;
@@ -44,11 +61,8 @@ void Graphics::draw_rectangle(const Vector2D &position, const double &width, con
 
     project_rectangle_on_screen(rectangle);
 
-    SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
-    SDL_RenderClear(renderer_);
     SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
     SDL_RenderDrawRect(renderer_, &rectangle);
-    SDL_RenderPresent(renderer_);
   }
 }
 

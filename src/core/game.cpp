@@ -67,5 +67,6 @@ void Game::render() {
   for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
     game_entities_[i].graphics_component().update(game_entities_[i], graphics_);
   }
+  graphics_->render();
 }
 
