@@ -1,7 +1,12 @@
 #include "inputs_component.hpp"
 #include "../models/game_entity.hpp"
+#include "../states/state.hpp"
 
 void InputsComponent::update(GameEntity &game_entity, Input &input) {
+  AState *next_state = game_entity.state()->handle_input(game_entity, input);
+
+  game_entity.set_state(next_state);
+  /* TODO remove
   switch (input.type) {
     case InputType::LEFT:
       if (input.method == InputMethod::PUSH) {
@@ -32,5 +37,6 @@ void InputsComponent::update(GameEntity &game_entity, Input &input) {
     default:
       break;
   }
+  */
 }
 

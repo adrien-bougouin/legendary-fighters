@@ -7,16 +7,22 @@ PhysicsComponent::PhysicsComponent(): max_x_velocity_(5.0), max_y_velocity_(40.0
 
 void PhysicsComponent::update(GameEntity &game_entity) {
   Vector2D &position = game_entity.position();
+  Vector2D &velocity = game_entity.velocity();
 
-  position += game_entity.velocity();
+  position += velocity;
 
   // dumb gravity
   position.set_y(position.y() - 8.0);
   if (position.y() < 0.0) {
     position.set_y(0.0);
   }
+
+  // reset
+  velocity.set_x(0.0);
+  velocity.set_y(0.0);
 }
 
+/* TODO remove
 void PhysicsComponent::stop_horizontal_motion(GameEntity &game_entity) {
   Vector2D &velocity = game_entity.velocity();
 
@@ -61,4 +67,5 @@ void PhysicsComponent::jump(GameEntity &game_entity) {
 
   velocity.set_y(new_velocity);
 }
+*/
 
