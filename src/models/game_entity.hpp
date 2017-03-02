@@ -9,6 +9,10 @@
 
 class GameEntity {
   private:
+    double walk_velocity_;
+    double jump_velocity_;
+
+    double direction_;
     Vector2D position_;
     Vector2D velocity_;
 
@@ -21,6 +25,16 @@ class GameEntity {
   public:
     GameEntity();
 
+    // TODO tests
+    double &walk_velocity();
+    const double &walk_velocity() const;
+    double &jump_velocity();
+    const double &jump_velocity() const;
+
+    // TODO test
+    double &direction();
+    const double &direction() const;
+    void set_direction(const double &direction);
     Vector2D &position();
     const Vector2D &position() const;
     Vector2D &velocity();

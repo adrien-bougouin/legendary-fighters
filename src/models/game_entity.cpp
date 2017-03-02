@@ -1,10 +1,41 @@
 #include "game_entity.hpp"
+#include "../states/standing_state.hpp"
 
-GameEntity::GameEntity(): position_(0.0, 0.0), velocity_(0.0, 0.0),
-                          state_(AState::standing_state), // TODO should not be static
+GameEntity::GameEntity(): walk_velocity_(20.0), jump_velocity_(160.0), // TODO send to constructor
+                          direction_(1.0),
+                          position_(0.0, 0.0), velocity_(0.0, 0.0),
+                          state_(&AState::standing_state), // TODO should not be static
                           inputs_component_(),
                           physics_component_(),
                           graphics_component_() {
+}
+
+const double &GameEntity::walk_velocity() const {
+  return walk_velocity_;
+}
+
+double &GameEntity::walk_velocity() {
+  return walk_velocity_;
+}
+
+const double &GameEntity::jump_velocity() const {
+  return jump_velocity_;
+}
+
+double &GameEntity::jump_velocity() {
+  return jump_velocity_;
+}
+
+double &GameEntity::direction() {
+  return direction_;
+}
+
+const double &GameEntity::direction() const {
+  return direction_;
+}
+
+void GameEntity::set_direction(const double &direction) {
+  direction_ = direction;
 }
 
 Vector2D &GameEntity::position() {

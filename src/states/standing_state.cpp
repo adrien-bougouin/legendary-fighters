@@ -1,30 +1,35 @@
 #include "standing_state.hpp"
+#include "walking_state.hpp"
+#include "jumping_state.hpp"
 #include "../models/vector_2d.hpp"
 
 AState *StandingState::handle_input(GameEntity &game_entity, Input &input) {
   switch (input.type) {
-    /*
     case InputType::LEFT:
       if (input.method == InputMethod::PUSH) {
-        // TODO game_entity.set_direction(-1);
-        return AState::walking_state;
+        game_entity.set_direction(-1);
+        return &AState::walking_state;
       }
       break;
     case InputType::RIGHT:
       if (input.method == InputMethod::PUSH) {
-        // TODO game_entity.set_direction(1);
-        return AState::walking_state;
+        game_entity.set_direction(1);
+        return &AState::walking_state;
       }
-    */
+      break;
     case InputType::UP:
       if (input.method == InputMethod::PUSH) {
-        return AState::jumping_state;
+        return &AState::jumping_state;
       }
       break;
     default:
       break;
   }
 
+  return this;
+}
+
+AState *StandingState::update(GameEntity &game_entity) {
   return this;
 }
 

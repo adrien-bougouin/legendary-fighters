@@ -58,8 +58,11 @@ void Game::handle_inputs() {
 
 void Game::update() {
   for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
+    GameEntity &game_entity = game_entities_[i];
+
     // TODO add physics engine and every entities for collision detection
-    game_entities_[i].physics_component().update(game_entities_[i]);
+    game_entity.physics_component().update(game_entity);
+    game_entity.set_state(game_entity.state()->update(game_entity));
   }
 }
 

@@ -1,11 +1,11 @@
-#ifndef __STATES_JUMPING_HPP__
-#define __STATES_JUMPING_HPP__
+#ifndef __STATES_WALKING_HPP__
+#define __STATES_WALKING_HPP__
 
 #include "state.hpp"
 #include "../models/game_entity.hpp"
 #include "../models/input.hpp"
 
-class JumpingState: public AState {
+class WalkingState: public AState {
   public:
     AState *handle_input(GameEntity &game_entity, Input &input);
     AState *update(GameEntity &game_entity);
@@ -13,4 +13,4 @@ class JumpingState: public AState {
     void enter(GameEntity &game_entity);
 };
 
-#endif // __STATES_JUMPING_HPP__
+#endif // __STATES_WALKING_HPP__
