@@ -6,9 +6,7 @@ void GraphicsComponent::update(GameEntity &game_entity, Graphics *graphics, cons
   // TODO render state
   Vector2D interpolated_position = game_entity.position();
 
-  // TODO interpolated_position += game_entity.velocity() * elapsed_frames;
-  interpolated_position.set_x(interpolated_position.x() + (game_entity.velocity().x() * elapsed_frames));
-  interpolated_position.set_y(interpolated_position.y() + (game_entity.velocity().y() * elapsed_frames));
+  interpolated_position += game_entity.velocity() * elapsed_frames;
 
   graphics->draw_rectangle(interpolated_position, 80.0, 80.0);
 }

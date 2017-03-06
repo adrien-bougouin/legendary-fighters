@@ -13,6 +13,8 @@ class Vector2DTest: public CppUnit::TestFixture {
   CPPUNIT_TEST(test_set_y);
   CPPUNIT_TEST(test_equal);
   CPPUNIT_TEST(test_not_equal);
+  CPPUNIT_TEST(test_scalar_multiplication);
+  CPPUNIT_TEST(test_negative_scalar_multiplication);
   CPPUNIT_TEST(test_translation);
   CPPUNIT_TEST(test_negative_translation);
   CPPUNIT_TEST_SUITE_END();
@@ -25,6 +27,8 @@ class Vector2DTest: public CppUnit::TestFixture {
 
     void test_equal();
     void test_not_equal();
+    void test_scalar_multiplication();
+    void test_negative_scalar_multiplication();
     void test_translation();
     void test_negative_translation();
 };

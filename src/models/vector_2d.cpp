@@ -27,6 +27,10 @@ bool Vector2D::operator!=(const Vector2D &vector) const {
   return !(*this == vector);
 }
 
+Vector2D Vector2D::operator*(const double &scalar) const {
+  return Vector2D(x_ * scalar, y_ * scalar);
+}
+
 void Vector2D::operator+=(const Vector2D &vector) {
   x_ += vector.x();
   y_ += vector.y();

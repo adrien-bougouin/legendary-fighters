@@ -15,6 +15,7 @@ class Vector2D {
 
     bool operator==(const Vector2D &vector) const;
     bool operator!=(const Vector2D &vector) const;
+    Vector2D operator*(const double &scalar) const;
     void operator+=(const Vector2D &vector);
     void operator-=(const Vector2D &vector);
 };
