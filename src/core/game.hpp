@@ -19,7 +19,7 @@ class Game {
     void loop();
     void handle_inputs();
     void update();
-    void render();
+    void render(const double &lag);
   public:
     static const double FRAME_RATE;
     static const double FRAME_MILLISECONDS;

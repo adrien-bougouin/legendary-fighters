@@ -7,7 +7,8 @@ AState *JumpingState::handle_input(GameEntity &game_entity, Input &input) {
 }
 
 AState *JumpingState::update(GameEntity &game_entity) {
-  game_entity.velocity().set_y(0.0);
+  // TODO gravity constant
+  game_entity.velocity().set_y(-8.0);
 
   // TODO use physics component?
   if (game_entity.position().y() == 0.0) {

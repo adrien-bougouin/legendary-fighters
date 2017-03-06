@@ -11,8 +11,7 @@ void PhysicsComponent::update(GameEntity &game_entity) {
 
   position += velocity;
 
-  // dumb gravity
-  position.set_y(position.y() - 8.0);
+  // TODO replace by proper collision
   if (position.y() < 0.0) {
     position.set_y(0.0);
   }

@@ -38,7 +38,7 @@ void Game::loop() {
 
       lag -= FRAME_MILLISECONDS;
     }
-    render();
+    render(lag);
   }
 }
 
@@ -66,9 +66,9 @@ void Game::update() {
   }
 }
 
-void Game::render() {
+void Game::render(const double &lag) {
   for (int i = 0; i < GAME_ENTITY_LIMIT; ++i) {
-    game_entities_[i].graphics_component().update(game_entities_[i], graphics_);
+    game_entities_[i].graphics_component().update(game_entities_[i], graphics_, lag / FRAME_MILLISECONDS);
   }
   graphics_->render();
 }
