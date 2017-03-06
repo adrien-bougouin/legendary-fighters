@@ -1,6 +1,6 @@
 #include "vector_2d_test.hpp"
 
-void Vector2DTest::test_initialization() {
+void Vector2DTest::test_init() {
   const double x = 1.0;
   const double y = 2.0;
   const Vector2D vector = Vector2D(x, y);

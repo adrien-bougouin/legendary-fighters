@@ -8,11 +8,11 @@
 
 class InputTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(InputTest);
-  CPPUNIT_TEST(test_initialization);
+  CPPUNIT_TEST(test_init);
   CPPUNIT_TEST_SUITE_END();
 
   public:
-    void test_initialization();
+    void test_init();
 };
 
 CPPUNIT_TEST_SUITE_REGISTRATION(InputTest);

@@ -58,6 +58,10 @@ AState *GameEntity::state() {
   return state_;
 }
 
+const AState *GameEntity::state() const {
+  return state_;
+}
+
 void GameEntity::set_state(AState *state) {
   if (state_ != state) {
     state_->leave(*this);

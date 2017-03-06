@@ -8,13 +8,16 @@
 
 class GameEntityTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(GameEntityTest);
-  CPPUNIT_TEST(test_initialization);
-  CPPUNIT_TEST(test_change_properties);
+  CPPUNIT_TEST(test_init);
+  CPPUNIT_TEST(test_set_properties);
+  CPPUNIT_TEST(test_set_state);
   CPPUNIT_TEST_SUITE_END();
 
   public:
-    void test_initialization();
-    void test_change_properties();
+    void test_init();
+
+    void test_set_properties();
+    void test_set_state();
 };
 
 CPPUNIT_TEST_SUITE_REGISTRATION(GameEntityTest);

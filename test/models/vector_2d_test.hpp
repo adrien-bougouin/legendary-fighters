@@ -8,7 +8,7 @@
 
 class Vector2DTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(Vector2DTest);
-  CPPUNIT_TEST(test_initialization);
+  CPPUNIT_TEST(test_init);
   CPPUNIT_TEST(test_set_x);
   CPPUNIT_TEST(test_set_y);
   CPPUNIT_TEST(test_equal);
@@ -18,7 +18,7 @@ class Vector2DTest: public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE_END();
 
   public:
-    void test_initialization();
+    void test_init();
 
     void test_set_x();
     void test_set_y();

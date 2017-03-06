@@ -31,7 +31,6 @@ class GameEntity {
     double &jump_velocity();
     const double &jump_velocity() const;
 
-    // TODO test
     double &direction();
     const double &direction() const;
     void set_direction(const double &direction);
@@ -41,6 +40,7 @@ class GameEntity {
     const Vector2D &velocity() const;
 
     AState *state();
+    const AState *state() const;
     void set_state(AState *state);
 
     InputsComponent &inputs_component();
