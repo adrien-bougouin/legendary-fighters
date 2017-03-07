@@ -7,8 +7,9 @@
 
 class Game {
   private:
-    static const int GAME_ENTITY_LIMIT = 1;
-    GameEntity game_entities_[GAME_ENTITY_LIMIT];
+    static const int GAME_ENTITY_LIMIT = 10;
+    GameEntity entities_[GAME_ENTITY_LIMIT];
+    int num_entities_;
 
     bool over_;
 
@@ -25,6 +26,8 @@ class Game {
     static const double FRAME_MILLISECONDS;
 
     Game(Inputs *inputs, Graphics *graphics);
+
+    void add_entity(const GameEntity &entity);
 
     void run();
     void stop();
