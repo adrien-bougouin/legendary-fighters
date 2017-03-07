@@ -17,6 +17,8 @@ class Game {
     // TODO Physics physics_;
     Graphics *graphics_;
 
+    void add_entity(const GameEntity &entity);
+
     void loop();
     void handle_inputs();
     void update();
@@ -26,8 +28,6 @@ class Game {
     static const double FRAME_MILLISECONDS;
 
     Game(Inputs *inputs, Graphics *graphics);
-
-    void add_entity(const GameEntity &entity);
 
     void run();
     void stop();
