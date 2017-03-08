@@ -2,6 +2,9 @@
 #include "standing_state.hpp"
 #include "jumping_state.hpp"
 
+WalkingState::WalkingState(const int &id): AState(id) {
+}
+
 AState *WalkingState::handle_input(GameEntity &game_entity, Input &input) {
   switch (input.type) {
     case InputType::LEFT:

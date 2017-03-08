@@ -2,6 +2,7 @@
 #define __MODELS_GAME_ENTITY_HPP__
 
 #include "vector_2d.hpp"
+#include "animation.hpp"
 #include "../states/state.hpp"
 #include "../components/inputs_component.hpp"
 #include "../components/physics_component.hpp"
@@ -17,6 +18,8 @@ class GameEntity {
     Vector2D velocity_;
 
     AState *state_;
+    // TODO do not hard code
+    Animation animations_[3];
 
     InputsComponent inputs_component_;
     PhysicsComponent physics_component_;
@@ -42,6 +45,9 @@ class GameEntity {
     AState *state();
     const AState *state() const;
     void set_state(AState *state);
+
+    Animation &animation(const int &id);
+    const Animation &animation(const int &id) const;
 
     InputsComponent &inputs_component();
     PhysicsComponent &physics_component();

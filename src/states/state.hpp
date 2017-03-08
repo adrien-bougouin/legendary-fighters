@@ -9,12 +9,17 @@ class WalkingState;
 class JumpingState;
 
 class AState {
+  private:
+    int id_;
   public:
     // TODO remove
     static StandingState standing_state;
-    // TODO
     static WalkingState walking_state;
     static JumpingState jumping_state;
+
+    AState(const int &id);
+
+    const int id() const;
 
     virtual AState *handle_input(GameEntity &game_entity, Input &input) = 0;
     virtual AState *update(GameEntity &game_entity) = 0;

@@ -3,6 +3,9 @@
 #include "jumping_state.hpp"
 #include "../models/vector_2d.hpp"
 
+StandingState::StandingState(const int &id): AState(id) {
+}
+
 AState *StandingState::handle_input(GameEntity &game_entity, Input &input) {
   switch (input.type) {
     case InputType::LEFT:

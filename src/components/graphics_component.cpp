@@ -8,6 +8,7 @@ void GraphicsComponent::update(GameEntity &game_entity, Graphics *graphics, cons
 
   interpolated_position += game_entity.velocity() * elapsed_frames;
 
-  graphics->draw_rectangle(interpolated_position, 80.0, 80.0);
+  // TODO image size
+  graphics->blit_image(game_entity.animation(game_entity.state()->id()).current_frame(), 192.0, 192.0, interpolated_position);
 }
 

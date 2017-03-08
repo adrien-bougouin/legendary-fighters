@@ -7,6 +7,8 @@
 
 class WalkingState: public AState {
   public:
+    WalkingState(const int &id);
+
     AState *handle_input(GameEntity &game_entity, Input &input);
     AState *update(GameEntity &game_entity);
 

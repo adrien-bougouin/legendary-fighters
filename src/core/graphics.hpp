@@ -25,7 +25,7 @@ class Graphics {
     bool ready() const;
 
     void render();
-    void draw_rectangle(const Vector2D &position, const double &width, const double &height);
+    void blit_image(const std::string &image_filepath, const double &width, const double &height, const Vector2D &position);
 };
 
 #endif // __CORE_GRAPHICS_HPP__

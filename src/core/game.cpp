@@ -75,7 +75,9 @@ void Game::update() {
 
       // TODO add physics engine and every entities for collision detection
       entity.physics_component().update(entity);
+      // TODO manage in frame data component???
       entity.set_state(entity.state()->update(entity));
+      entity.animation(entity.state()->id()).update();
     }
   // TODO }
 }

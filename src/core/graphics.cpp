@@ -1,3 +1,5 @@
+#include <SDL2/SDL_image.h>
+
 #include "graphics.hpp"
 
 Graphics::Graphics(const std::string &window_title, const double &window_width, const double &window_height): window_width_(window_width), window_height_(window_height) {
@@ -50,8 +52,10 @@ void Graphics::render() {
   }
 }
 
-void Graphics::draw_rectangle(const Vector2D &position, const double &width, const double &height) {
+void Graphics::blit_image(const std::string &image_filepath, const double &width, const double &height, const Vector2D &position) {
   if (renderer_ != NULL) {
+    SDL_Surface *image = IMG_Load(image_filepath.c_str());
+    SDL_Texture *texture = texture = SDL_CreateTextureFromSurface(renderer_, image);
     SDL_Rect rectangle;
 
     rectangle.x = position.x();
@@ -61,8 +65,9 @@ void Graphics::draw_rectangle(const Vector2D &position, const double &width, con
 
     project_rectangle_on_screen(rectangle);
 
-    SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
-    SDL_RenderDrawRect(renderer_, &rectangle);
+    SDL_RenderCopy(renderer_, texture, NULL, &rectangle);
+    SDL_FreeSurface(image);
+    SDL_DestroyTexture(texture);
   }
 }
 

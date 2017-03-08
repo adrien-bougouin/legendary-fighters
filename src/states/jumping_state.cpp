@@ -2,6 +2,9 @@
 #include "standing_state.hpp"
 #include "walking_state.hpp"
 
+JumpingState::JumpingState(const int &id): AState(id) {
+}
+
 AState *JumpingState::handle_input(GameEntity &game_entity, Input &input) {
   return this;
 }

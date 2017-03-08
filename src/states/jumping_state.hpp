@@ -7,6 +7,8 @@
 
 class JumpingState: public AState {
   public:
+    JumpingState(const int &id);
+
     AState *handle_input(GameEntity &game_entity, Input &input);
     AState *update(GameEntity &game_entity);
 

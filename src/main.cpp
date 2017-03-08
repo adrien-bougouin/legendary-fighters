@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #include "core/inputs.hpp"
 // TODO physics
@@ -7,6 +8,8 @@
 
 int main (int argc, char **argv) {
   if (SDL_VideoInit(NULL) == 0) {
+    // TODO error check
+    IMG_Init(IMG_INIT_PNG);
     atexit(SDL_Quit);
 
     Inputs inputs = Inputs();

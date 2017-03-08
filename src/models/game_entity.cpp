@@ -5,9 +5,13 @@ GameEntity::GameEntity(): walk_velocity_(20.0), jump_velocity_(160.0), // TODO s
                           direction_(1.0),
                           position_(0.0, 0.0), velocity_(0.0, 0.0),
                           state_(&AState::standing_state), // TODO should not be static
+                          animations_(),
                           inputs_component_(),
                           physics_component_(),
                           graphics_component_() {
+  animations_[0] = Animation();
+  animations_[1] = Animation();
+  animations_[2] = Animation();
 }
 
 const double &GameEntity::walk_velocity() const {
@@ -71,6 +75,16 @@ void GameEntity::set_state(AState *state) {
 
     state_->enter(*this);
   }
+}
+
+// TODO error check
+Animation &GameEntity::animation(const int &id) {
+  return animations_[id];
+}
+
+// TODO error check
+const Animation &GameEntity::animation(const int &id) const {
+  return animations_[id];
 }
 
 InputsComponent &GameEntity::inputs_component() {
