@@ -61,7 +61,10 @@ void Game::handle_inputs() {
         for (int i = 0; i < num_entities_; ++i) {
           GameEntity &entity = entities_[i];
 
+          // TODO input component only changes state and frame data component
+          //      handles velocity based on current frame
           entity.inputs_component().update(entity, input);
+          entity.frame_data_component().update(entity);
         }
       }
     }
@@ -75,9 +78,8 @@ void Game::update() {
 
       // TODO add physics engine and every entities for collision detection
       entity.physics_component().update(entity);
-      // TODO manage in frame data component???
-      entity.set_state(entity.state()->update(entity));
-      entity.animation(entity.state()->id()).update();
+      // TODO maybe it should be done after render???
+      entity.frame_data_component().goto_next_frame(entity);
     }
   // TODO }
 }

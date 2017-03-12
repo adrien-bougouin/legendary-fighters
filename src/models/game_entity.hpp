@@ -4,6 +4,7 @@
 #include "vector_2d.hpp"
 #include "animation.hpp"
 #include "../states/state.hpp"
+#include "../components/frame_data_component.hpp"
 #include "../components/inputs_component.hpp"
 #include "../components/physics_component.hpp"
 #include "../components/graphics_component.hpp"
@@ -21,6 +22,7 @@ class GameEntity {
     // TODO do not hard code
     Animation animations_[3];
 
+    FrameDataComponent frame_data_component_;
     InputsComponent inputs_component_;
     PhysicsComponent physics_component_;
     GraphicsComponent graphics_component_;
@@ -46,9 +48,10 @@ class GameEntity {
     const AState *state() const;
     void set_state(AState *state);
 
-    Animation &animation(const int &id);
-    const Animation &animation(const int &id) const;
+    Animation &current_animation();
+    const Animation &current_animation() const;
 
+    FrameDataComponent &frame_data_component();
     InputsComponent &inputs_component();
     PhysicsComponent &physics_component();
     GraphicsComponent &graphics_component();

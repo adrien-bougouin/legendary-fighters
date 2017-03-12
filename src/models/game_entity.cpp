@@ -1,11 +1,12 @@
 #include "game_entity.hpp"
 #include "../states/standing_state.hpp"
 
-GameEntity::GameEntity(): walk_velocity_(20.0), jump_velocity_(160.0), // TODO send to constructor
+GameEntity::GameEntity(): walk_velocity_(10.0), jump_velocity_(160.0), // TODO send to constructor
                           direction_(1.0),
                           position_(0.0, 0.0), velocity_(0.0, 0.0),
                           state_(&AState::standing_state), // TODO should not be static
                           animations_(),
+                          frame_data_component_(),
                           inputs_component_(),
                           physics_component_(),
                           graphics_component_() {
@@ -77,14 +78,16 @@ void GameEntity::set_state(AState *state) {
   }
 }
 
-// TODO error check
-Animation &GameEntity::animation(const int &id) {
-  return animations_[id];
+Animation &GameEntity::current_animation() {
+  return animations_[state_->id()];
 }
 
-// TODO error check
-const Animation &GameEntity::animation(const int &id) const {
-  return animations_[id];
+const Animation &GameEntity::current_animation() const {
+  return animations_[state_->id()];
+}
+
+FrameDataComponent &GameEntity::frame_data_component() {
+  return frame_data_component_;
 }
 
 InputsComponent &GameEntity::inputs_component() {

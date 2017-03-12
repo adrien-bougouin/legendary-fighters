@@ -5,10 +5,6 @@ class GameEntity;
 
 class PhysicsComponent {
   public:
-    // TODO
-    //PhysicsComponent(const double &max_velocity, const double &acceleration);
-    PhysicsComponent();
-
     void update(GameEntity &game_entity);
 };
 
