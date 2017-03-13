@@ -2,7 +2,7 @@
 
 #include "graphics.hpp"
 
-Graphics::Graphics(const std::string &window_title, const double &window_width, const double &window_height): window_width_(window_width), window_height_(window_height) {
+Graphics::Graphics(const std::string &window_title, const double &window_width, const double &window_height): window_width_(window_width), window_height_(window_height), texture_cache_(30) {
   window_ = SDL_CreateWindow(
     window_title.c_str(),
     SDL_WINDOWPOS_CENTERED,
@@ -25,6 +25,8 @@ Graphics::Graphics(const std::string &window_title, const double &window_width, 
 }
 
 Graphics::~Graphics() {
+  free_texture_cache();
+
   if (renderer_ != NULL) {
     SDL_DestroyRenderer(renderer_);
   }
@@ -52,22 +54,51 @@ void Graphics::render() {
   }
 }
 
-void Graphics::blit_image(const std::string &image_filepath, const double &width, const double &height, const Vector2D &position) {
+void Graphics::blit_sprite(const Sprite &sprite, const Vector2D &position) {
   if (renderer_ != NULL) {
+    SDL_Texture *texture = get_texture(sprite.sprite_sheet_filepath);
+    SDL_Rect extraction_rectangle;
+    SDL_Rect display_rectangle;
+
+    extraction_rectangle.x = sprite.column * sprite.width;
+    extraction_rectangle.y = sprite.line * sprite.height;
+    extraction_rectangle.w = sprite.width;
+    extraction_rectangle.h = sprite.height;
+
+    display_rectangle.x = position.x();
+    display_rectangle.y = position.y();
+    // TODO use scale ratio
+    display_rectangle.w = sprite.width * 3;
+    display_rectangle.h = sprite.height * 3;
+
+    project_rectangle_on_screen(display_rectangle);
+
+    SDL_RenderCopy(renderer_, texture, &extraction_rectangle, &display_rectangle);
+  }
+}
+
+SDL_Texture *Graphics::get_texture(const std::string &image_filepath) {
+  SDL_Texture *texture = NULL;
+  auto kv_texture = texture_cache_.find(image_filepath);
+
+  if (kv_texture == texture_cache_.end()) {
     SDL_Surface *image = IMG_Load(image_filepath.c_str());
-    SDL_Texture *texture = texture = SDL_CreateTextureFromSurface(renderer_, image);
-    SDL_Rect rectangle;
 
-    rectangle.x = position.x();
-    rectangle.y = position.y();
-    rectangle.w = width;
-    rectangle.h = height;
+    texture = SDL_CreateTextureFromSurface(renderer_, image);
+    texture_cache_[image_filepath] = texture;
 
-    project_rectangle_on_screen(rectangle);
-
-    SDL_RenderCopy(renderer_, texture, NULL, &rectangle);
     SDL_FreeSurface(image);
-    SDL_DestroyTexture(texture);
+  } else {
+    texture = kv_texture->second;
+  }
+
+  return texture;
+}
+
+void Graphics::free_texture_cache() {
+  for(auto &kv_texture : texture_cache_) {
+    SDL_DestroyTexture(kv_texture.second);
+    texture_cache_.erase(kv_texture.first);
   }
 }
 
