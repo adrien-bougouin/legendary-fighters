@@ -91,6 +91,11 @@ LDFLAGS     += $(foreach dir, \
                $(addprefix -l, $(LIBS)) \
                $(addprefix -framework, $(FRAMEWORKS)) \
 
+ifeq (${CI}, true)
+COMP_FLAGS += -fprofile-arcs -ftest-coverage
+LDFLAGS += -fprofile-arcs -ftest-coverage
+endif
+
 ################################################################################
 
 EXEC      = $(shell echo $(PROJECT) | tr '[:upper:]' '[:lower:]' | sed "s/-/_/g")
