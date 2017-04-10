@@ -91,7 +91,7 @@ LDFLAGS     += $(foreach dir, \
                $(addprefix -l, $(LIBS)) \
                $(addprefix -framework, $(FRAMEWORKS)) \
 
-ifeq (${CI}, true)
+ifneq (${CI}, '')
 COMP_FLAGS += -fprofile-arcs -ftest-coverage
 LDFLAGS += -fprofile-arcs -ftest-coverage
 endif

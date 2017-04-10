@@ -8,5 +8,5 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sh .travis.d/install_linux_dependencies.sh; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sh .travis.d/install_osx_dependencies.sh; fi
 script: make && make test
-after_success: bash <(curl -s https://codecov.io/bash) -s build/.obj/test -t ${CODECOV_IO_TOKEN}
+after_success: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_IO_TOKEN}
 
