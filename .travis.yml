@@ -5,7 +5,8 @@ language: c++
 compiler: clang
 sudo: required
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sh .travis.d/install_linux_dependencies.sh; fi
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sh .travis.d/install_osx_dependencies.sh; fi
+  - bash .travis.d/install_linux_dependencies.sh
+  - bash .travis.d/install_osx_dependencies.sh
 script: make && make test
+after_success: bash .travis.d/cov.sh
 
