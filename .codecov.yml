@@ -1,7 +1,4 @@
 ignore:
   - "test"
   - "src/main.cpp"
-status:
-  project: false
-  patch: true
 
