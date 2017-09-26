@@ -22,13 +22,13 @@ InputType Inputs::input_type(SDL_Event &event) const {
       SDL_KeyboardEvent key = event.key;
 
       switch (key.keysym.sym) {
-        case SDLK_q:
+        case SDLK_a:
           type = InputType::LEFT;
           break;
         case SDLK_d:
           type = InputType::RIGHT;
           break;
-        case SDLK_z:
+        case SDLK_w:
           type = InputType::UP;
           break;
       }

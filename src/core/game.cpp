@@ -1,6 +1,7 @@
 #include <assert.h>
 
 #include "game.hpp"
+#include "../factories/roster.hpp"
 #include "../models/input.hpp"
 #include "../utils/time.hpp"
 
@@ -8,8 +9,8 @@ const double Game::FRAME_RATE = 30.0;
 const double Game::FRAME_MILLISECONDS = (1.0 / Game::FRAME_RATE) * 1000.0;
 
 Game::Game(Inputs *inputs, Graphics *graphics): over_(true), inputs_(inputs), graphics_(graphics), entities_(), num_entities_(0) {
-  // TODO from menus???
-  add_entity(GameEntity());
+  // TODO from menus
+  add_entity(Roster::create_daigo());
 }
 
 void Game::run() {
